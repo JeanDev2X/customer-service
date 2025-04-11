@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bank.customer.service.dto.CustomerResponse;
 import com.bank.customer.service.entity.Customer;
 import com.bank.customer.service.service.CustomerService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-//Controller
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
@@ -49,7 +49,7 @@ public class CustomerController {
     }
     
     @GetMapping("/document/{documentNumber}")
-    public Mono<Customer> getCustomerByDocumentNumber(@PathVariable String documentNumber) {
+    public Mono<CustomerResponse> getCustomerByDocumentNumber(@PathVariable String documentNumber) {
         return service.getCustomerByDocumentNumber(documentNumber);
     }
     

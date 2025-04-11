@@ -16,4 +16,6 @@ public class Customer {
     private String name;
     private String documentNumber;
     private CustomerType type;
+    private CustomerProfile profile = CustomerProfile.STANDARD; // por defecto STANDARD
+    private Boolean hasCreditCard; // true si tiene tarjeta de crédito
 }

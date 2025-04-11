@@ -1,5 +1,8 @@
 package com.bank.customer.service.service.impl;
+import com.bank.customer.service.dto.CustomerResponse;
 import com.bank.customer.service.entity.Customer;
+import com.bank.customer.service.entity.CustomerProfile;
+import com.bank.customer.service.entity.CustomerType;
 import com.bank.customer.service.repository.CustomerRepository;
 import com.bank.customer.service.service.CustomerService;
 
@@ -16,6 +19,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Mono<Customer> createCustomer(Customer customer) {
+    	
+    	if (customer.getType() == CustomerType.PERSONAL && customer.getProfile() == CustomerProfile.PYME) {
+    	    return Mono.error(new IllegalArgumentException("A personal customer cannot have PYME profile"));
+    	}
+    	if (customer.getType() == CustomerType.BUSINESS && customer.getProfile() == CustomerProfile.VIP) {
+    	    return Mono.error(new IllegalArgumentException("A business customer cannot have VIP profile"));
+    	}
+    	
         return repository.save(customer);
     }
 
@@ -46,8 +57,21 @@ public class CustomerServiceImpl implements CustomerService {
     }
     
     @Override
-    public Mono<Customer> getCustomerByDocumentNumber(String documentNumber) {
-        return repository.findByDocumentNumber(documentNumber);
+    public Mono<CustomerResponse> getCustomerByDocumentNumber(String documentNumber) {
+    	return repository.findByDocumentNumber(documentNumber)
+                .map(this::mapToResponse)
+                .switchIfEmpty(Mono.error(new RuntimeException("Customer not found")));
+    }
+    
+    private CustomerResponse mapToResponse(Customer customer) {
+        return CustomerResponse.builder()
+                .id(customer.getId())
+                .name(customer.getName())
+                .documentNumber(customer.getDocumentNumber())
+                .type(customer.getType())
+                .profile(customer.getProfile())
+                .hasCreditCard(customer.getHasCreditCard())
+                .build();
     }
 
 }

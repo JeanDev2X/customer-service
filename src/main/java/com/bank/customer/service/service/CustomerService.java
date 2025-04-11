@@ -1,6 +1,7 @@
 package com.bank.customer.service.service;
 
 
+import com.bank.customer.service.dto.CustomerResponse;
 import com.bank.customer.service.entity.Customer;
 
 import reactor.core.publisher.Flux;
@@ -13,5 +14,5 @@ public interface CustomerService {
     Mono<Customer> getCustomerById(String id);
     Mono<Customer> updateCustomer(String id, Customer customer);
     Mono<Void> deleteCustomer(String id);
-    Mono<Customer> getCustomerByDocumentNumber(String documentNumber);
+    Mono<CustomerResponse> getCustomerByDocumentNumber(String documentNumber);
 }
