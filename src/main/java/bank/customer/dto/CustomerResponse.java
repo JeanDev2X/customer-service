@@ -1,8 +1,7 @@
-package com.bank.customer.service.dto;
+package bank.customer.dto;
 
-import com.bank.customer.service.entity.CustomerProfile;
-import com.bank.customer.service.entity.CustomerType;
-
+import bank.customer.entity.CustomerProfile;
+import bank.customer.entity.CustomerType;
 import lombok.Builder;
 import lombok.Data;
 
