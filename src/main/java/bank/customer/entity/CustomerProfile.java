@@ -1,4 +1,4 @@
-package com.bank.customer.service.entity;
+package bank.customer.entity;
 
 public enum CustomerProfile {
 	STANDARD, // perfil por defecto

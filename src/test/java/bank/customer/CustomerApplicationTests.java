@@ -1,4 +1,4 @@
-package spring.boot.webflu.ms.cliente.app;
+package bank.customer;
 
 import java.util.Collections;
 import java.util.List;
@@ -13,15 +13,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import com.bank.customer.service.entity.Customer;
-import com.bank.customer.service.service.CustomerService;
-
+import bank.customer.entity.Customer;
+import bank.customer.service.CustomerService;
 import reactor.core.publisher.Mono;
 
 @AutoConfigureWebTestClient
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)//SpringBootTest.WebEnvironment.RANDOM_PORT
-class SpringBootWebfluMsClienteApplicationTests {
+class CustomerApplicationTests {
 	
 //	@Autowired
 //	private WebTestClient client;

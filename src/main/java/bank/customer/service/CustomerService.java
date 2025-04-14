@@ -1,9 +1,8 @@
-package com.bank.customer.service.service;
+package bank.customer.service;
 
 
-import com.bank.customer.service.dto.CustomerResponse;
-import com.bank.customer.service.entity.Customer;
-
+import bank.customer.dto.CustomerResponse;
+import bank.customer.entity.Customer;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

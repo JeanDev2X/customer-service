@@ -1,13 +1,13 @@
-package com.bank.customer.service.service.impl;
-import com.bank.customer.service.dto.CustomerResponse;
-import com.bank.customer.service.entity.Customer;
-import com.bank.customer.service.entity.CustomerProfile;
-import com.bank.customer.service.entity.CustomerType;
-import com.bank.customer.service.repository.CustomerRepository;
-import com.bank.customer.service.service.CustomerService;
-
+package bank.customer.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import bank.customer.dto.CustomerResponse;
+import bank.customer.entity.Customer;
+import bank.customer.entity.CustomerProfile;
+import bank.customer.entity.CustomerType;
+import bank.customer.repository.CustomerRepository;
+import bank.customer.service.CustomerService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
