@@ -47,6 +47,8 @@ public class CustomerServiceImpl implements CustomerService {
                     existingCustomer.setName(customer.getName());
                     existingCustomer.setDocumentNumber(customer.getDocumentNumber());
                     existingCustomer.setType(customer.getType());
+                    existingCustomer.setProfile(customer.getProfile());
+                    existingCustomer.setHasCreditCard(customer.getHasCreditCard());
                     return repository.save(existingCustomer);
                 });
     }
